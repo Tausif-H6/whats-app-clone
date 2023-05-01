@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./css/Sidebar.css";
 import { Avatar, IconButton } from "@mui/material";
 import {
@@ -8,7 +8,25 @@ import {
   SearchOutlined,
 } from "@mui/icons-material";
 import Sidebarchat from "./Sidebarchat";
+import db from "./firbase";
+
 function Sidebar() {
+  const [rooms, setRooms] = useState([]);
+
+  useEffect(() => {
+    const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
+      setRooms(
+        snapshot.docs.map((doc) => ({
+          id: doc.id,
+          data: doc.data(),
+        }))
+      )
+    );
+    return () => {
+      unsubscribe();
+    };
+  }, []);
+
   return (
     <div className="sidebar">
       <div className="sidebar__header">
@@ -33,12 +51,10 @@ function Sidebar() {
       </div>
 
       <div className="sidebar__chats">
-        <Sidebarchat addNewChat/>
-        <Sidebarchat/>
-        <Sidebarchat/>
-        <Sidebarchat/>
-        <Sidebarchat/>
-
+        <Sidebarchat addNewChat />
+        {rooms.map((room) => (
+          <Sidebarchat key={room.id} id={room.id} name={room.data.name} />
+        ))}
       </div>
     </div>
   );
