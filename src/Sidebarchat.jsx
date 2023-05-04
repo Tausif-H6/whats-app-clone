@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./css/Sidebarchat.css";
-import { Avatar } from "@mui/material";
+import { Avatar, Button} from "@mui/material";
 import db from "./firbase";
 import { Link } from "react-router-dom";
 
@@ -15,7 +15,7 @@ function Sidebarchat({ name,id,addNewChat }) {
         setMassages(snapshot.docs.map((doc)=>doc.data()))
       ))
     }
-  },[])
+  },[id])
 
   useEffect(() => {
     setSeed(Math.floor(Math.random() * 5000));
@@ -42,7 +42,7 @@ function Sidebarchat({ name,id,addNewChat }) {
     </Link>
   ) : (
     <div onClick={createChat} className="sidebarchat">
-      <h2>Add New Chat</h2>
+      <Button variant="contained" color="success"> Add New Group Chat</Button>
     </div>
   );
 }

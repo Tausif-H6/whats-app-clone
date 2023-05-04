@@ -14,3 +14,15 @@
    box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.2);
    margin-top: -50px;
 } 
+
+  
+  /* On screens that are 600px or less, set the background color to olive */
+  @media screen and (max-width: 600px) {
+    .App{
+        width: 70vh;
+    }
+   .app__body{
+    width: auto;
+   }
+  
+  }
