@@ -9,9 +9,11 @@ import {
 } from "@mui/icons-material";
 import Sidebarchat from "./Sidebarchat";
 import db from "./firbase";
+import { useStateValue } from "./SateProvider";
 
 function Sidebar() {
   const [rooms, setRooms] = useState([]);
+  const[{user},dispatch]= useStateValue();
 
   useEffect(() => {
     const unsubscribe = db.collection("rooms").onSnapshot((snapshot) =>
@@ -26,11 +28,11 @@ function Sidebar() {
       unsubscribe();
     };
   }, []);
-
+  console.log(user?.photoURL)
   return (
     <div className="sidebar">
       <div className="sidebar__header">
-        <Avatar />
+        <Avatar src={user?.photoURL}/>
         <div className="sidebar__headerRight">
           <IconButton>
             <DonutLarge />
