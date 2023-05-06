@@ -39,7 +39,8 @@
       content: "";
     }
     .app__body{
-      height: 70vh;
+      height: 85vh;
+      margin-bottom: 13vh;
     }
    
     }
