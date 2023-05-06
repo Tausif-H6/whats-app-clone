@@ -3,10 +3,7 @@ import "./css/Chat.css";
 import { Avatar, IconButton, TextField } from "@mui/material";
 import {
   AttachFile,
-  InsertEmoticon,
-  Mic,
   MoreVert,
-  RoomServiceOutlined,
   SearchOutlined,
 } from "@mui/icons-material";
 import { useParams } from "react-router-dom";
