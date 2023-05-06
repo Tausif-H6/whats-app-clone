@@ -7,17 +7,19 @@
 }
 
 .app__body{
-   display: flex;
-   background-color: #ededed;
-   height: 90vh;
-   width: 90vw;
-   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.2);
-   margin-top: -50px;
+  display: flex;
+  background-color: #ededed;
+  height: 90vh;
+  z-index: 2;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 1px 1px 9px 3px rgb(148, 146, 146);
+  width: 90vw;
 } 
 
   
   /* On screens that are 600px or less, set the background color to olive */
-  @media screen and (max-width: 600px) {
+  /* @media screen and (max-width: 600px) {
     .App{
         width: 70vh;
     }
@@ -25,4 +27,16 @@
     width: auto;
    }
   
-  }
+  } */
+  @media(max-width: 600px) {
+    .App {
+      position: fixed;
+      top: 0;
+      z-index: 2;
+      background-color: #009688;
+      width: 100vw;
+      height: 100vh;
+      content: "";
+    }
+   
+    }

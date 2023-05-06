@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./css/Chat.css";
-import { Avatar, IconButton } from "@mui/material";
+import { Avatar, IconButton, TextField } from "@mui/material";
 import {
   AttachFile,
   InsertEmoticon,
@@ -13,7 +13,7 @@ import { useParams } from "react-router-dom";
 import db from "./firbase";
 import { useStateValue } from "./SateProvider";
 import firebase from "firebase/compat/app";
-import { format } from "date-fns";
+import SendIcon from '@mui/icons-material/Send';
 
 function Chat() {
   const [input, setInput] = useState("");
@@ -99,19 +99,19 @@ function Chat() {
         ))}
       </div>
       <div className="chat__footer">
-        <InsertEmoticon />
         <form>
-          <input
+          {/* <input
             value={input}
             onChange={(e) => setInput(e.target.value)}
             placeholder="Type a message"
             type="text"
-          />
-          <button onClick={sendMessage} type="submit">
-            Send a message
-          </button>
+          /> */}
+          <TextField id="outlined-basic" label="Type message" variant="outlined" value={input}
+            onChange={(e) => setInput(e.target.value)}
+            placeholder="Type a message"
+            type="text"/>
+          <SendIcon onClick={sendMessage} type="submit"/> 
         </form>
-        <Mic />
       </div>
     </div>
   );

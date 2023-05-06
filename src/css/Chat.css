@@ -73,25 +73,63 @@
     align-items: center;
     height: 62px;
     border-top: 1px solid lightgray;
+
   }
   
   .chat__footer > form {
     flex: 1;
     display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: all 1s ease-in-out;
+  }
+  #outlined-basic{
+    width: 100%;
   }
   
-  .chat__footer > form > input {
+  /* .chat__footer > form > input {
     flex: 1;
     border-radius: 30px;
-    padding: 10px;
+    outline: none;
+    padding: .8em;
     border: none;
-  }
+  } */
   
-  .chat__footer > form > button {
-    display: none;
-  }
+  /* .chat__footer > form > button {
+    display: none ;
+  } */
   
   .chat__footer > .MuiSvgIcon-root {
     padding: 10px;
     color: gray;
   }
+  .chat__body::-webkit-scrollbar {
+    width: .5em;
+}
+
+.chat__body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px rgba(128, 128, 128, 0);
+}
+
+.chat__body::-webkit-scrollbar-thumb {
+    background: rgba(73, 72, 72, 0.466);
+}
+
+  @media(max-width: 600px) {
+
+    /* MOBILE STYLES */
+    .chat{
+        width: 100%;
+        height: 100%;
+        flex: 1; 
+        font-size: xx-small;
+    }
+    .chat__message{
+      font-size: x-small;
+      right: 1.5rem; 
+    }
+    .chat__header{
+      flex-wrap: wrap;
+    }
+  
+}
